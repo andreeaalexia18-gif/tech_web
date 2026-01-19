@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Artă</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏛️ ArtaWeb Project</h1>
+        <a href="admin.html">🔐 Panou Admin</a>
+    </header>
+
+    <div class="controls-container">
+        <div class="search-group">
+            <input type="text" id="searchInput" placeholder="Caută după titlu, artist sau tehnică...">
+            <button onclick="search()">🔍 Caută</button>
+        </div>
+        
+      <div class="filters">
+    <button class="filter-btn" onclick="filter('')">Toate</button>
+    <button class="filter-btn" onclick="filter('European')">Europene</button>
+    <button class="filter-btn" onclick="filter('American')">Americane</button>
+    <button class="filter-btn" onclick="filter('Asian')">Asiatice</button>
+    <button class="filter-btn" onclick="filter('Egyptian')">Egiptene</button>
+</div>
+
+        <select id="limitSelect" onchange="changeLimit()">
+    <option value="6">6 pe pagină</option>
+    <option value="12" selected>12 pe pagină</option>
+    <option value="100">Toate</option>
+</select>
+    </div>
+
+    <div id="artGrid" class="grid">
+        </div>
+
+    <div class="pagination">
+        <button onclick="prevPage()">❮ Anterior</button>
+        <span id="pageInfo">Pagina 1</span>
+        <button onclick="nextPage()">Următor ❯</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Pornim aplicația
+        loadArtworks();
+    </script>
+</body>
+</html>

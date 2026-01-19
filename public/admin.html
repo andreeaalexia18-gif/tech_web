@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Galerie Artă</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .hidden { display: none; }
+        .form-container { border: 1px solid #ccc; padding: 20px; margin-top: 20px; max-width: 500px;}
+        input, select { display: block; width: 100%; margin-bottom: 10px; padding: 8px;}
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>Panou de Control</h1>
+    <a href="index.html">Înapoi la Site</a>
+
+    <div id="loginSection">
+        <h3>Autentificare</h3>
+        <input type="text" id="username" placeholder="User (admin)">
+        <input type="password" id="password" placeholder="Parola (admin)">
+        <button onclick="login()">Loghează-te</button>
+        <p id="loginError" style="color:red"></p>
+    </div>
+
+    <div id="adminContent" class="hidden">
+        <button onclick="logout()">Deconectare</button>
+        <hr>
+        
+        <h3>Gestionează Înregistrări</h3>
+        <button onclick="showAddForm()">Adaugă Nou</button>
+
+        <div id="itemForm" class="form-container hidden">
+            <h4 id="formTitle">Adaugă Element</h4>
+            <input type="hidden" id="editId">
+            <input type="text" id="inpTitle" placeholder="Titlu">
+            <input type="text" id="inpArtist" placeholder="Nume Artist">
+            <input type="text" id="inpDept" placeholder="Departament (ex: European Paintings)">
+            <label>Imagine:</label>
+            <input type="file" id="inpImage" accept="image/*">
+            <input type="hidden" id="inpImageBase64">
+            
+            <button onclick="saveItem()">Salvează</button>
+            <button onclick="hideForm()">Anulează</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titlu</th>
+                    <th>Artist</th>
+                    <th>Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        checkAuth(); // Verifica daca e logat la incarcare
+    </script>
+</body>
+</html>

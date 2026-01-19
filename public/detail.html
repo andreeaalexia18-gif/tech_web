@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalii</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center;}
+        img { max-width: 600px; max-height: 500px; border: 5px solid #333; }
+        .info { text-align: left; max-width: 600px; margin: 0 auto; background: #f4f4f4; padding: 20px; border-radius: 8px;}
+    </style>
+</head>
+<body>
+    <a href="index.html">← Înapoi</a>
+    <div id="detailContainer">Loading...</div>
+
+    <script src="script.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        loadDetail(id);
+    </script>
+</body>
+</html>
